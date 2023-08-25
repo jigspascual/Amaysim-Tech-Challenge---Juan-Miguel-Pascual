@@ -1,11 +1,14 @@
 import LandingPage from "../page-locators/LandingPage";
+import SevenDaySimPlanPage from "../page-locators/SevenDaySimPlanPage";
 import SimPlansPage from "../page-locators/SimPlansPage";
 describe('Sample', () =>{
     const myLandingPage = new LandingPage();
     const mySimPlansPage = new SimPlansPage();
+    const mySevenDaySimPlanPage = new SevenDaySimPlanPage();
     it('Sample', () =>{
         cy.visit('https://www.amaysim.com.au/');
-        myLandingPage.selectSimPlan();
-        mySimPlansPage.selectSimPlan(1,2);
+        myLandingPage.selectSimPlan2();
+        mySimPlansPage.sampleSelectSim();
+       // myLandingPage.selectSimPlan("7 day");
     })
 })

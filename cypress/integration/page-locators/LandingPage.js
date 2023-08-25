@@ -8,5 +8,8 @@ class LandingPage{
         cy.get(this.simPlans).trigger('mouseenter');
         cy.get(this.planDropdown).should('be.visible').find('li').contains(planType).click();        
     }
+    selectSimPlan2(){
+        cy.get(this.simPlans).click();
+    }
 }
 export default LandingPage

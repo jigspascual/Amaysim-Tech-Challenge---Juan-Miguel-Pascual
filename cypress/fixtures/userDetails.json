@@ -11,5 +11,10 @@
     "username": "test.testing@example.com",
     "cardNumber" : "4242 4242 4242 4242",
     "cardExpiry" :"01/27",
-    "cardCVV" :"123"
+    "cardCVV" :"123",
+    "simPlan" : "7 day",
+    "simPlanOption" :0,
+    "simType" : "USIM",
+    "isKeepNumber" : false,
+    "isUserExisting": false
   }

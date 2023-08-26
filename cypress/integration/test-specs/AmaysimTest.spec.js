@@ -17,10 +17,13 @@ describe("Validate that error message is displayed when card payment is invalid"
     });
   });
   it("Buys 7-day sim plan from dropdown", () => {
-    myLandingPage.selectSimPlan("7 day");
-    mySimPlansPage.buySimPlan("7 day", 0);
-    myBuySimPage.fillInSimDetails("USIM", false);
-    myDetailsPage.setDetails(false, userDetails);
+    myLandingPage.selectSimPlan(userDetails.simPlan);
+    mySimPlansPage.buySimPlan(userDetails.simPlan, userDetails.simPlanOption);
+    myBuySimPage.fillInSimDetails(
+      userDetails.simType,
+      userDetails.isKeepNumber
+    );
+    myDetailsPage.setDetails(userDetails.isUserExisting, userDetails);
     myPaymentsPage.isPageLoaded();
     myPaymentsPage.inputDetails(
       userDetails.cardNumber,
@@ -33,9 +36,11 @@ describe("Validate that error message is displayed when card payment is invalid"
     cy.visit("https://www.amaysim.com.au/");
     myLandingPage.clickSimPlans();
     mySimPlansPage.buySimPlan("7 day", 0);
-    myBuySimPage.fillInSimDetails("USIM", false);
-    myDetailsPage.setDetails(false, userDetails);
-    myPaymentsPage.isPageLoaded();
+    myBuySimPage.fillInSimDetails(
+      userDetails.simType,
+      userDetails.isKeepNumber
+    );
+    myDetailsPage.setDetails(userDetails.isUserExisting, userDetails);
     myPaymentsPage.inputDetails(
       userDetails.cardNumber,
       userDetails.cardExpiry,

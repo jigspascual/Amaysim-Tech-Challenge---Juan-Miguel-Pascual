@@ -4,6 +4,7 @@ class SimPlansPage {
       this.dataPlanTitles = 'h3[class="h1"]';
       this.buyNowButton = ".btn.no-icon.btn-orange";
       this.planCards = ".plan-card-bottom";
+      this.planDescription = 'li'
     }
     /*
     selectSimPlan(simPlanIndex, valueType) {
@@ -32,11 +33,12 @@ class SimPlansPage {
     */
     buySimPlan(planType, planOption) {
       cy.get(this.planCards)
-        .find(`li > b:contains("${planType}")`)
+        .find(`${this.planDescription}:contains("${planType}")`)
         .parents(this.planCards)
         .find(`${this.buyNowButton}:contains("Buy"):visible`)
         .eq(planOption)
         .click();
     }
+   
   }
   export default SimPlansPage;

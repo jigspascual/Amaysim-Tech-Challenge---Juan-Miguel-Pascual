@@ -8,8 +8,7 @@ describe('Sample', () =>{
     it('Sample', () =>{
         cy.visit('https://www.amaysim.com.au/');
         //myLandingPage.selectSimPlan2();
-        myLandingPage.selectSimPlan("6/12 month");
-        mySimPlansPage.buySimPlan("12 month",1);
-
+        myLandingPage.selectSimPlan("Data plans");
+        mySimPlansPage.buySimPlan("Data only",1);
     })
 })

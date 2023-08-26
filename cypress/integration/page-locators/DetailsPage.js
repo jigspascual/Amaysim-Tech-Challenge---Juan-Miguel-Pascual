@@ -62,9 +62,6 @@ class DetailsPage {
       .eq(0)
       .click();
   }
-  setUsername(username) {
-    cy.get(this.userNameField).type(username);
-  }
   clickTermsAndCondition() {
     cy.get(this.termsAndConditionsCheckBox).click({ force: true });
   }
@@ -75,8 +72,8 @@ class DetailsPage {
     cy.get(this.loginButton).click({ force: true });
   }
   setExistingUserDetails(username, password) {
-    this.setUsername(username);
-    this.setPassword(password);
+    this.typeAndAssertValue(this.userNameField, username);
+    this.typeAndAssertValue(this.passwordField, password);
     this.clickLoginButton();
   }
   setNewUserDetails(userDetails) {
@@ -106,34 +103,12 @@ class DetailsPage {
     this.clickTermsAndCondition();
     this.clickContinueButton();
   }
-  setDetails(
-    isExistingUser,
-    firstName,
-    lastName,
-    dateOfBirth,
-    email,
-    username,
-    password,
-    isDeliveryAddressSame,
-    homeAddress,
-    deliveryAddress,
-    isPaymentCreditCard
-  ) {
+  setDetails(isExistingUser, userDetails) {
     this.isUserNew(isExistingUser);
     if (isExistingUser) {
-      this.setExistingUserDetails(username, password);
-    } else if (!isExistingUser) {
-      this.setNewUserDetails(
-        firstName,
-        lastName,
-        dateOfBirth,
-        email,
-        password,
-        isDeliveryAddressSame,
-        homeAddress,
-        deliveryAddress,
-        isPaymentCreditCard
-      );
+      this.setExistingUserDetails(userDetails.username, userDetails.password);
+    } else {
+      this.setNewUserDetails(userDetails);
     }
   }
   isErrorMsgDisplayed() {

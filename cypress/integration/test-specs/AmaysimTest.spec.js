@@ -7,8 +7,9 @@ describe('Sample', () =>{
     const mySevenDaySimPlanPage = new SevenDaySimPlanPage();
     it('Sample', () =>{
         cy.visit('https://www.amaysim.com.au/');
-        myLandingPage.selectSimPlan2();
-        mySimPlansPage.sampleSelectSim();
-       // myLandingPage.selectSimPlan("7 day");
+        //myLandingPage.selectSimPlan2();
+        myLandingPage.selectSimPlan("6/12 month");
+        mySimPlansPage.buySimPlan("12 month",1);
+
     })
 })

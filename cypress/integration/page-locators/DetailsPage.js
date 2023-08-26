@@ -38,20 +38,8 @@ class DetailsPage {
       cy.get(this.paypalPaymentType).check("PAYPAL", { force: true });
     }
   }
-  setFirstName(firstName) {
-    cy.get(this.userFirstNameField).type(firstName);
-  }
-  setLastName(lastName) {
-    cy.get(this.userLastNameField).type(lastName);
-  }
-  setBirthDate(birthDate) {
-    cy.get(this.birthDateField).type(birthDate);
-  }
-  setEmail(email) {
-    cy.get(this.emailField).type(email);
-  }
-  setPassword(password) {
-    cy.get(this.passwordField).type(password);
+  typeAndAssertValue(selector, value) {
+    cy.get(selector).type(value).should("have.value", value);
   }
   setNumber() {
     cy.get(this.contactNumberField).type(
@@ -91,22 +79,23 @@ class DetailsPage {
     this.setPassword(password);
     this.clickLoginButton();
   }
-  setNewUserDetails(
-    firstName,
-    lastName,
-    dateOfBirth,
-    email,
-    password,
-    isDeliveryAddressSame,
-    homeAddress,
-    deliveryAddress,
-    isPaymentCreditCard
-  ) {
-    this.setFirstName(firstName);
-    this.setLastName(lastName);
-    this.setBirthDate(dateOfBirth);
-    this.setEmail(email);
-    this.setPassword(password);
+  setNewUserDetails(userDetails) {
+    const {
+      firstName,
+      lastName,
+      dateOfBirth,
+      email,
+      password,
+      isDeliveryAddressSame,
+      homeAddress,
+      deliveryAddress,
+      isPaymentCreditCard,
+    } = userDetails;
+    this.typeAndAssertValue(this.userFirstNameField, firstName);
+    this.typeAndAssertValue(this.userLastNameField, lastName);
+    this.typeAndAssertValue(this.birthDateField, dateOfBirth);
+    this.typeAndAssertValue(this.emailField, email);
+    this.typeAndAssertValue(this.passwordField, password);
     this.setNumber();
     this.isDeliverySame(isDeliveryAddressSame);
     this.setHomeAddress(homeAddress);
@@ -130,6 +119,7 @@ class DetailsPage {
     deliveryAddress,
     isPaymentCreditCard
   ) {
+    this.isUserNew(isExistingUser);
     if (isExistingUser) {
       this.setExistingUserDetails(username, password);
     } else if (!isExistingUser) {

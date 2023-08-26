@@ -15,27 +15,27 @@ class PaymentsPage {
   isPageLoaded() {
     cy.url().should("contain", "my-account");
   }
-  inputDetails() {
-    this.setCardNumber();
-    this.setExpirationDate();
-    this.setCVV();
+  inputDetails(cardNumber, cardExpiry, cardCVV) {
+    this.setCardDetail(
+      this.paymentDetailsIframe,
+      this.cardNumberField,
+      cardNumber
+    );
+    this.setCardDetail(
+      this.securityDetailsIframe,
+      this.cardExpiryDate,
+      cardExpiry
+    );
+    this.setCardDetail(
+      this.securityCodeDetailsIframe,
+      this.cardSecurityCode,
+      cardCVV
+    );
     this.clickConfirmationBox();
     this.clickSubmitButton();
   }
-  setCardNumber() {
-    cy.iframe(this.paymentDetailsIframe)
-      .find(this.cardNumberField)
-      .type("4242 4242 4242 4242");
-  }
-  setExpirationDate() {
-    cy.iframe(this.securityDetailsIframe)
-      .find(this.cardExpiryDate)
-      .type("0127");
-  }
-  setCVV() {
-    cy.iframe(this.securityCodeDetailsIframe)
-      .find(this.cardSecurityCode)
-      .type("123");
+  setCardDetail(iframeLocator, locator, value) {
+    cy.iframe(iframeLocator).find(locator).type(value);
   }
   clickConfirmationBox() {
     cy.get(this.confirmationCheckBox).click({ force: true });

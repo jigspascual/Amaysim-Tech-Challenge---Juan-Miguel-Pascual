@@ -8,5 +8,8 @@
     "homeAddress": "Level 6, 17-19 Bridge St, SYDNEY NSW 2000",
     "deliveryAddress": "Level 6, 17-19 Bridge St, SYDNEY NSW 2000",
     "isPaymentCreditCard": true,
-    "username": "test.testing@example.com"
+    "username": "test.testing@example.com",
+    "cardNumber" : "4242 4242 4242 4242",
+    "cardExpiry" :"01/27",
+    "cardCVV" :"123"
   }

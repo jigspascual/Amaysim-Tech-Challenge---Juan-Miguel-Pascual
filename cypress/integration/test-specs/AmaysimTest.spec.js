@@ -22,7 +22,11 @@ describe("Validate that error message is displayed when card payment is invalid"
     myBuySimPage.fillInSimDetails("USIM", false);
     myDetailsPage.setDetails(false, userDetails);
     myPaymentsPage.isPageLoaded();
-    myPaymentsPage.inputDetails();
+    myPaymentsPage.inputDetails(
+      userDetails.cardNumber,
+      userDetails.cardExpiry,
+      userDetails.cardCVV
+    );
     myDetailsPage.isErrorMsgDisplayed();
   });
   it("Buy 7-day sim plan from Sim Plans Page", () => {
@@ -32,7 +36,11 @@ describe("Validate that error message is displayed when card payment is invalid"
     myBuySimPage.fillInSimDetails("USIM", false);
     myDetailsPage.setDetails(false, userDetails);
     myPaymentsPage.isPageLoaded();
-    myPaymentsPage.inputDetails();
+    myPaymentsPage.inputDetails(
+      userDetails.cardNumber,
+      userDetails.cardExpiry,
+      userDetails.cardCVV
+    );
     myDetailsPage.isErrorMsgDisplayed();
   });
 });

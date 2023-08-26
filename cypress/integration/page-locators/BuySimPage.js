@@ -10,16 +10,19 @@ class BuySimPage {
       force: true,
     });
   }
-  //Select if user retain their number(yes) or opt for a new sim(no)
-  keepNumber(retainSim) {
-    cy.get(this.numberSwitcher).find("input").check(retainSim, { force: true });
+  isNumberSame(isRetained) {
+    if (isRetained) {
+      cy.get(this.numberSwitcher).find("input").check("yes", { force: true });
+    } else {
+      cy.get(this.numberSwitcher).find("input").check("no", { force: true });
+    }
   }
   clickCheckoutButton() {
     cy.get(this.checkOutButton).should("be.visible").click();
   }
-  fillInDetails(simType, retainSim) {
+  fillInSimDetails(simType, isNumberChanged) {
     this.selectSimType(simType);
-    this.keepNumber(retainSim);
+    this.isNumberSame(isNumberChanged);
     this.clickCheckoutButton();
   }
 }

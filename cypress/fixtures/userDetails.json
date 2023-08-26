@@ -1,0 +1,12 @@
+{
+    "firstName": "Test",
+    "lastName": "Test",
+    "dateOfBirth": "12/10/1992",
+    "email": "test.testing@example.com",
+    "password": "securepassword",
+    "isDeliveryAddressSame": true,
+    "homeAddress": "Level 6, 17-19 Bridge St, SYDNEY NSW 2000",
+    "deliveryAddress": "Level 6, 17-19 Bridge St, SYDNEY NSW 2000",
+    "isPaymentCreditCard": true,
+    "username": "test.testing@example.com"
+  }

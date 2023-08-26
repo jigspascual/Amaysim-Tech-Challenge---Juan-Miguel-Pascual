@@ -12,9 +12,12 @@ class DetailsPage{
         this.deliveryAddress = 'div[role="combobox"] > input';
         this.deliveryOption = 'input[name="deliveryAddressIsHomeAddress"]'
         this.autoCompleteOptions = 'ul[role="listbox"]';
-        this.termsAndConditionsCheckBox = 'input[name="acceptTermsAndConditions"]'
-        this.creditPaymentType = 'input[data-payment-type="CREDIT_CARDS"]'
-        this.paypalPaymentType = 'input[data-payment-type="PAYPAL"]'
+        this.termsAndConditionsCheckBox = 'input[name="acceptTermsAndConditions"]';
+        this.creditPaymentType = 'input[data-payment-type="CREDIT_CARDS"]';
+        this.paypalPaymentType = 'input[data-payment-type="PAYPAL"]';
+        this.continueToPaymentButton = 'button[value="continue"]';
+        this.loginButton = 'button[data-testid="login-button"]'
+        this.errorMsg = 'span > strong';
     }
     isUserNew(isExistingUser){
         if(isExistingUser == false){
@@ -67,9 +70,16 @@ class DetailsPage{
     clickTermsAndCondition(){
         cy.get(this.termsAndConditionsCheckBox).click({force:true});
     }
+    clickContinueButton(){
+        cy.get(this.continueToPaymentButton).should('be.enabled').click();
+    }
+    clickLoginButton(){
+        cy.get(this.loginButton).click({force:true});
+    }
     setExistingUserDetails(username, password){
         this.setUsername(username);
         this.setPassword(password);
+        this.clickLoginButton();
       }
     setNewUserDetails(firstName, lastName, dateOfBirth, email, password, isDeliveryAddressSame, homeAddress, deliveryAddress, isPaymentCreditCard) {
         this.setFirstName(firstName);
@@ -85,6 +95,7 @@ class DetailsPage{
         }
         this.isPaymentCredit(isPaymentCreditCard);
         this.clickTermsAndCondition();
+        this.clickContinueButton();
       }
     setDetails(isExistingUser, firstName, lastName, dateOfBirth, email, username, password, isDeliveryAddressSame, homeAddress, deliveryAddress, isPaymentCreditCard) {
         if (isExistingUser) {
@@ -92,6 +103,9 @@ class DetailsPage{
         }else if(!isExistingUser){
         this.setNewUserDetails(firstName, lastName, dateOfBirth, email, password, isDeliveryAddressSame, homeAddress, deliveryAddress, isPaymentCreditCard);
         }
-      }  
+      }
+      isErrorMsgDisplayed(){
+        cy.get(this.errorMsg).contains('Credit Card payment failed').should('exist').and('be.visible');
+      } 
 }
 export default DetailsPage;

@@ -11,6 +11,8 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+import 'cypress-iframe';
+require('cypress-iframe');
 //
 //
 // -- This is a child command --

@@ -13,7 +13,7 @@ describe("Validate that error message is displayed when card payment is invalid"
   beforeEach(function () {
     cy.fixture("userDetails.json").then((data) => {
       userDetails = data;
-      cy.visit("https://www.amaysim.com.au/");
+      myLandingPage.visitPage();
     });
   });
   it("Buys 7-day sim plan from dropdown", () => {

@@ -3,6 +3,9 @@ class LandingPage {
     this.simPlans = 'a[aria-label="SIM plans"]';
     this.planDropdown = ".nav-dropdown-list";
   }
+  visitPage() {
+    cy.visit(Cypress.env("baseUrl"));
+  }
   selectSimPlan(planType) {
     cy.get(this.simPlans).trigger("mouseenter");
     cy.get(this.planDropdown)

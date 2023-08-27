@@ -1,4 +1,6 @@
 const { defineConfig } = require("cypress");
+const path = require("path");
+const fs = require("fs-extra");
 
 module.exports = defineConfig({
   viewportHeight: 1000,
@@ -6,7 +8,15 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      const file = config.env.configFile;
+      const pathToConfigFile = path.resolve(
+        __dirname,
+        "cypress",
+        "plugins",
+        "configs",
+        `${file}.json`
+      );
+      return fs.readJson(pathToConfigFile);
     },
     specPattern: "cypress\\integration\\test-specs\\*.spec.{feature,js,ts}",
   },

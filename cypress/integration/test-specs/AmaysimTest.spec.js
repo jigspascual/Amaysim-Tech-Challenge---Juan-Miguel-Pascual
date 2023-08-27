@@ -33,9 +33,8 @@ describe("Validate that error message is displayed when card payment is invalid"
     myDetailsPage.isErrorMsgDisplayed();
   });
   it("Buy 7-day sim plan from Sim Plans Page", () => {
-    cy.visit("https://www.amaysim.com.au/");
     myLandingPage.clickSimPlans();
-    mySimPlansPage.buySimPlan("7 day", 0);
+    mySimPlansPage.buySimPlan(userDetails.simPlan, userDetails.simPlanOption);
     myBuySimPage.fillInSimDetails(
       userDetails.simType,
       userDetails.isKeepNumber

@@ -4,7 +4,7 @@ class LandingPage {
     this.planDropdown = ".nav-dropdown-list";
   }
   visitPage() {
-    cy.visit(Cypress.env("baseUrl"));
+    cy.visit(Cypress.config("baseUrl"));
   }
   selectSimPlan(planType) {
     cy.get(this.simPlans).trigger("mouseenter");

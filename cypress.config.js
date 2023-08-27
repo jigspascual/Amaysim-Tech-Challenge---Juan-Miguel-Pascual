@@ -1,7 +1,6 @@
 const { defineConfig } = require("cypress");
 const path = require("path");
 const fs = require("fs-extra");
-
 module.exports = defineConfig({
   viewportHeight: 1000,
   viewportWidth: 1800,

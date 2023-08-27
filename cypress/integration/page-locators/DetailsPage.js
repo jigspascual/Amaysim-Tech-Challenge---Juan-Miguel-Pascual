@@ -8,8 +8,7 @@ class DetailsPage {
     this.userNameField = 'input[name="username"]';
     this.passwordField = 'input[name="password"]';
     this.contactNumberField = 'input[name="contactNumber"]';
-    this.homeAddressField = 'div[role="combobox"] > input';
-    this.deliveryAddress = 'div[role="combobox"] > input';
+    this.addressField = 'div[role="combobox"] > input';
     this.deliveryOption = 'input[name="deliveryAddressIsHomeAddress"]';
     this.autoCompleteOptions = 'ul[role="listbox"]';
     this.termsAndConditionsCheckBox = 'input[name="acceptTermsAndConditions"]';
@@ -47,7 +46,7 @@ class DetailsPage {
     );
   }
   setHomeAddress(userAddress) {
-    cy.get(this.homeAddressField).eq(0).type(userAddress);
+    cy.get(this.addressField).eq(0).type(userAddress);
     cy.get(this.autoCompleteOptions)
       .should("be.visible")
       .find("span")
@@ -55,7 +54,7 @@ class DetailsPage {
       .click();
   }
   setDeliveryAddress(deliveryAddress) {
-    cy.get(this.deliveryAddress).eq(1).type(deliveryAddress);
+    cy.get(this.addressField).eq(1).type(deliveryAddress);
     cy.get(this.autoCompleteOptions)
       .should("be.visible")
       .find("span")

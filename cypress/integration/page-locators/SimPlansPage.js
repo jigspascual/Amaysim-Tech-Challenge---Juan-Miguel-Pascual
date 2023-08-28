@@ -1,9 +1,7 @@
 class SimPlansPage {
   constructor() {
-    this.dataPlanRows = ".plans-grid-row";
-    this.dataPlanTitles = 'h3[class="h1"]';
     this.buyNowButton = ".btn.no-icon.btn-orange";
-    this.planCards = ".plan-card-bottom";
+    this.planCards = ".product-card-bottom";
     this.planDescription = "li";
   }
   buySimPlan(planType, optionIndex) {

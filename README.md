@@ -26,7 +26,7 @@ npm install
 ```
 ## Running the test
 The test is modified to be able to run on multiple environments there are two ways to run the test. There are two environments for this project that can be found under /cypress/plugins/configs
-1. qa.json = For sampling only (do not use)
+1. qa.json = For sample only (do not use)
 2. Prod.json = For running the actual test for the actual website
 
 ### Executing test
@@ -43,7 +43,8 @@ npm run test:prod
 ```
 npx cypress open --env configFile=prod
 ```
-
+### Test Results
+After test execution, test execution and results in the form of a video can be viewed in cypress\videos
 
 
 

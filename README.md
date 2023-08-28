@@ -11,14 +11,17 @@ These are the tools/software that are needed before cloning the code repository 
 ### Installation
 1. Install Cypress - For a more detailed guide on installing Cypress please refer to: - [Cypress installation guide](https://docs.cypress.io/guides/getting-started/installing-cypress)
 2. Clone this code repository
+
+Clone this repo to a local directory
  ```
-### clone this repo to a local directory
 git clone https://github.com/jigspascual/Amaysim-Tech-Challenge---Juan-Miguel-Pascual.git
-
-### cd into the cloned repo
+ ```
+cd into the cloned repo
+ ```
 cd Amaysim-Tech-Challenge---Juan-Miguel-Pascual
-
-### install the node_modules
+ ```
+Install the node_modules
+ ```
 npm install
 ```
 ## Running the test

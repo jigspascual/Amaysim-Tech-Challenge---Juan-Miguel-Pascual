@@ -30,11 +30,11 @@ The test is modified to be able to run on multiple environments there are two wa
 1. via CLI using the command
 ```
 npx cypress run --env configFile=prod
-
-or 
-
-npm run test:prod
 ```
+or
+```
+npm run test:prod
+````
 
 2. via Cypress Test Runner UI
 ```

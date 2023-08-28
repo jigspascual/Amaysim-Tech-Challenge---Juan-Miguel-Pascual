@@ -74,6 +74,7 @@ class DetailsPage {
     this.typeAndAssertValue(this.userNameField, username);
     this.typeAndAssertValue(this.passwordField, password);
     this.clickLoginButton();
+    cy.url().should("contain", "/my-account");
   }
   setNewUserDetails(userDetails) {
     const {

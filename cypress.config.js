@@ -17,7 +17,7 @@ module.exports = defineConfig({
       );
       return fs.readJson(pathToConfigFile);
     },
-    specPattern: "cypress\\integration\\test-specs\\*.spec.{feature,js,ts}",
+    specPattern: "./cypress/integration/test-specs/*.spec.{feature,js,ts}",
   },
   env: {
     baseUrl: "https://www.amaysim.com.au/",

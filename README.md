@@ -11,18 +11,18 @@ These are the tools/software that are needed before cloning the code repository 
  ```
 git clone https://github.com/jigspascual/Amaysim-Tech-Challenge---Juan-Miguel-Pascual.git
  ```
-cd into the cloned repo
+2. Change the directory into the cloned repo
  ```
 cd Amaysim-Tech-Challenge---Juan-Miguel-Pascual
  ```
-Install the node_modules
+3. Install the node_modules
  ```
 npm install
 ```
 ## 🏃 Running the test
 The test is modified to be able to run on multiple environments there are two ways to run the test. There are two environments for this project that can be found under `/cypress/plugins/configs`
 1. qa.json = For sample only (do not use)
-2. Prod.json = For running the actual test for the actual website
+2. prod.json = For running the test for the actual website
 ### 📈 Executing test
 1. via CLI using the command
 ```

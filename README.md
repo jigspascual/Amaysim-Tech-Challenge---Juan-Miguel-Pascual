@@ -13,10 +13,10 @@ These are the tools/software that are needed before cloning the code repository 
 2. Clone this code repository
  ```
 ### clone this repo to a local directory
-git clone <insert git link here>
+git clone https://github.com/jigspascual/Amaysim-Tech-Challenge---Juan-Miguel-Pascual.git
 
 ### cd into the cloned repo
-cd <cloned repo directory>
+cd Amaysim-Tech-Challenge---Juan-Miguel-Pascual
 
 ### install the node_modules
 npm install
